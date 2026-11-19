@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DrakorIn — Support Developer</title>
+  <meta name="description" content="Halaman dukungan resmi DrakorIn. Bantu developer menjaga server streaming Drama Korea & Drama China tetap gratis tanpa iklan yang mengganggu." />
+  <style>
+    :root {
+      --bg: #080d16;
+      --card: #0f1726;
+      --border: rgba(255, 255, 255, 0.1);
+      --teal: #5ba499;
+      --teal-bright: #7ee3d4;
+      --text: #f3f7fc;
+      --muted: #9eb0c7;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background: radial-gradient(circle at top, #102430 0%, var(--bg) 55%);
+      color: var(--text);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 28px 16px 48px;
+    }
+    .container {
+      width: 100%;
+      max-width: 520px;
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+    }
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: 22px 20px;
+      box-shadow: 0 12px 32px rgba(0, 0, 0, 0.35);
+    }
+    .brand {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      font-size: 28px;
+      font-weight: 900;
+      letter-spacing: -0.5px;
+      margin-bottom: 6px;
+    }
+    .brand .accent { color: var(--teal-bright); }
+    .subtitle {
+      text-align: center;
+      color: var(--muted);
+      font-size: 13.5px;
+      line-height: 1.5;
+    }
+    .badge {
+      display: inline-block;
+      margin: 14px auto 0;
+      padding: 6px 12px;
+      border-radius: 999px;
+      background: rgba(126, 227, 212, 0.14);
+      border: 1px solid rgba(126, 227, 212, 0.4);
+      color: var(--teal-bright);
+      font-size: 12px;
+      font-weight: 700;
+    }
+    .center { text-align: center; }
+    .ad-slot {
+      min-height: 110px;
+      border: 1px dashed rgba(126, 227, 212, 0.28);
+      border-radius: 14px;
+      background: rgba(255, 255, 255, 0.02);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 14px;
+      text-align: center;
+      color: var(--muted);
+      font-size: 12px;
+    }
+    .timer-box {
+      margin-top: 14px;
+      padding: 12px 14px;
+      border-radius: 12px;
+      background: rgba(91, 164, 153, 0.12);
+      border: 1px solid rgba(91, 164, 153, 0.3);
+      font-size: 13px;
+      line-height: 1.45;
+      text-align: center;
+    }
+    .timer-box strong { color: var(--teal-bright); }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      margin-top: 14px;
+      padding: 13px 18px;
+      border-radius: 12px;
+      border: none;
+      background: var(--teal-bright);
+      color: #061317;
+      font-size: 14px;
+      font-weight: 800;
+      text-decoration: none;
+      cursor: pointer;
+    }
+    .btn.secondary {
+      background: #18253a;
+      color: var(--text);
+      border: 1px solid var(--border);
+    }
+    .info-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      font-size: 13px;
+      color: var(--muted);
+    }
+    .info-list li::before {
+      content: "✓ ";
+      color: var(--teal-bright);
+      font-weight: 900;
+    }
+    footer {
+      margin-top: 24px;
+      font-size: 11.5px;
+      color: #6c7f99;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <main class="container">
+    <section class="card center">
+      <div class="brand">Drakor<span class="accent">In!</span></div>
+      <p class="subtitle">
+        Terima kasih sudah membuka halaman dukungan resmi <strong>DrakorIn</strong>.<br />
+        Dukungan sukarela kamu membantu menjaga aplikasi tetap gratis, cepat, dan tanpa iklan pop-up saat menonton.
+      </p>
+      <div class="badge">💚 Support Developer · Sukarela</div>
+
+      <div class="timer-box" id="statusBox">
+        Memuat dukungan… tunggu <strong id="countdown">10</strong> detik lalu kamu bisa kembali ke aplikasi DrakorIn.
+      </div>
+
+      <!-- ===============================================================
+           TEMPEL LINK ADSTERRA DIRECT LINK KAMU DI HREF TOMBOL DI BAWAH
+           Contoh: href="https://www.effectiveratecpm.com/xxxxx"
+           =============================================================== -->
+      <a id="directLinkBtn" class="btn" href="#adsterra-direct-link" target="_blank" rel="noopener noreferrer">
+        ✨ Buka Sponsor Support Developer
+      </a>
+    </section>
+
+    <!-- ===============================================================
+         SLOT IKLAN ADSTERRA #1 (NATIVE BANNER / BANNER 300x250)
+         Tempel kode <script> dari Dashboard Adsterra di dalam div ini
+         =============================================================== -->
+    <section class="card">
+      <div class="ad-slot" id="adsterra-banner-slot">
+        <span>Slot Iklan Adsterra (Banner / Native Banner)</span>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2 style="font-size: 15px; margin-bottom: 10px;">Kenapa DrakorIn Gratis Tanpa Iklan?</h2>
+      <ul class="info-list">
+        <li>Streaming Drama Korea &amp; Drama China HD Sub Indo tanpa pop-up mengganggu.</li>
+        <li>Dukungan hanya melalui menu sukarela (QRIS atau halaman Support ini).</li>
+        <li>100% fitur terbuka gratis termasuk Mode Belajar Bahasa Korea &amp; Dual Subtitle.</li>
+      </ul>
+    </section>
+  </main>
+
+  <footer>
+    &copy; 2026 DrakorIn Community &middot; Halaman Dukungan Resmi
+  </footer>
+
+  <script>
+    (function () {
+      let sec = 10;
+      const cd = document.getElementById("countdown");
+      const box = document.getElementById("statusBox");
+      const timer = setInterval(function () {
+        sec -= 1;
+        if (sec <= 0) {
+          clearInterval(timer);
+          box.innerHTML = "<strong>Terima kasih banyak! 💚</strong> Dukunganmu sudah tercatat. Kamu boleh menutup halaman ini dan kembali menonton di aplikasi <strong>DrakorIn</strong>.";
+        } else if (cd) {
+          cd.textContent = String(sec);
+        }
+      }, 1000);
+    })();
+  </script>
+
+  <!-- ===============================================================
+       SLOT IKLAN ADSTERRA #2 (SOCIAL BAR — OPSIONAL)
+       Tempel kode <script> Social Bar Adsterra tepat sebelum </body>
+       =============================================================== -->
+</body>
+</html>
